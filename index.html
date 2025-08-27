@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Guess</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    button { padding: 10px 20px; font-size: 16px; margin: 10px; cursor: pointer; }
+    #result { margin-top: 20px; font-size: 24px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Guess if it's Raining or Sunny</h1>
+  <button onclick="guessWeather('raining')">Raining</button>
+  <button onclick="guessWeather('sunny')">Sunny</button>
+
+  <div id="result"></div>
+
+  <script>
+    function guessWeather(weather) {
+      let guess;
+      // Simple guessing logic: randomize the guess
+      if (Math.random() > 0.5) {
+        guess = weather; // guess matches user input
+      } else {
+        guess = weather === 'raining' ? 'sunny' : 'raining'; // opposite guess
+      }
+      document.getElementById('result').textContent = `The system guesses: ${guess.charAt(0).toUpperCase() + guess.slice(1)}`;
+    }
+  </script>
+</body>
+</html>
